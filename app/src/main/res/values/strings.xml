@@ -3,12 +3,45 @@
     <string name="autotethering_settings_title">AutoTethering Setting</string>
 
     <string name="tethering_service_label">Auto Tethering Helper</string>
-    <string name="tethering_service_description">Accessibility service for doing automation of ethernet tethering when device reboot with USB ethernet adapter</string>
+    <string name="tethering_service_description">Accessibility service for doing automation of Ethernet tethering when device reboot with USB ethernet adapter</string>
 
-    <string name="ethernet_tether_checkbox_text">Ethernet tethering</string>
+    <string name="custom_ethernet_tether_checkbox_text">Customize the keyword of the "Ethernet tethering" switch</string>
+    <string name="custom_ethernet_tether_checkbox_text_val">Ethernet tethering</string>
+    <string name="custom_ethernet_tether_checkbox_text_hint">custom "Ethernet tethering" keyword</string>
 
-    <string name="settings_customize_tether_keyword">Customize others keyword of tether switch</string>
+    <string name="custom_ethernet_tether_settings_text">Customize the name of the "com.android.settings" package</string>
+    <string name="custom_ethernet_tether_settings_text_val">com.android.settings</string>
+    <string name="custom_ethernet_tether_settings_text_hint">custom package (ex: "com.samsung.android.settings")</string>
 
-    <string name="settings_about_author">Author: github.com/DevriesL</string>
+    <string name="custom_ethernet_tether_activity_text">Customize the name of the "Hotspot and tethering" activity</string>
+    <string name="custom_ethernet_tether_activity_text_val">com.android.settings.TetherSettings</string>
+    <string name="custom_ethernet_tether_activity_text_hint">custom activity (ex: "com.samsung.android.settings.TetherSettings")</string>
+
+    <string name="settings_about_author">Author: github.com/dapa</string>
+    <string name="app_details">App details</string>
+    <string name="app_settings">App Settings</string>
+    <string name="accessibility_settings">Accessibility Settings</string>
+    <string name="tethering_settings">Tethering Settings</string>
+
+    <string name="status_tethering">Tethering: %1$s</string>
+    <string name="status_usb">USB: %1$s</string>
+    <string name="status_accessibility">Accessibility: %1$s</string>
+    <string name="status_battery">Battery: %1$s</string>
+
+    <string name="status_on">ON ✅</string>
+    <string name="status_off">OFF ❌</string>
+    <string name="status_connected">Connected ✅</string>
+    <string name="status_not_connected">Not connected ❌</string>
+    <string name="status_enabled">ENABLED ✅</string>
+    <string name="status_disabled">DISABLED ❌</string>
+    <string name="status_battery_full">FULL ✅</string>
+    <string name="status_battery_optimized">OPTIMIZED ❌</string>
+
+    <string name="label_tethering">Tethering</string>
+    <string name="label_usb">USB</string>
+    <string name="label_accessibility">Accessibility</string>
+    <string name="label_battery">Battery</string>
+    <string name="summary_all_good">All systems go ✅</string>
+    <string name="summary_needs_attention">Needs attention ⚠️</string>
 
 </resources>

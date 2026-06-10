@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+	<group
+    android:scaleX="0.7"
+    android:scaleY="0.7"
+    android:translateX="16"
+    android:translateY="16">
+
+		<!-- Phone body -->
+		<path
+			android:fillColor="#FFFFFF"
+			android:pathData="M22,24 Q22,19 27,19 L59,19 Q64,19 64,24 L64,84 Q64,89 59,89 L27,89 Q22,89 22,84 Z" />
+
+		<!-- Phone screen (punched out with background color) -->
+		<path
+			android:fillColor="#0D47A1"
+			android:pathData="M26,30 Q26,28 28,28 L58,28 Q60,28 60,30 L60,74 Q60,76 58,76 L28,76 Q26,76 26,74 Z" />
+
+		<!-- Home bar -->
+		<path
+			android:fillColor="#0D47A1"
+			android:pathData="M34,78.5 Q34,77 35.2,77 L50.8,77 Q52,77 52,78.5 Q52,80 50.8,80 L35.2,80 Q34,80 34,78.5 Z" />
+
+		<!-- Wi-Fi arc small -->
+		<path
+			android:fillColor="#00000000"
+			android:pathData="M34,63 Q40,56 46,63"
+			android:strokeColor="#4FC3F7"
+			android:strokeWidth="2.5"
+			android:strokeLineCap="round" />
+
+		<!-- Wi-Fi arc large -->
+		<path
+			android:fillColor="#00000000"
+			android:pathData="M30,59 Q40,47 50,59"
+			android:strokeColor="#4FC3F7"
+			android:strokeWidth="2"
+			android:strokeLineCap="round"
+			android:strokeAlpha="0.65" />
+
+		<!-- WiFi dot -->
+		<path
+			android:fillColor="#4FC3F7"
+			android:pathData="M40,64.5 m-2.5,0 a2.5,2.5 0 1,0 5,0 a2.5,2.5 0 1,0 -5,0" />
+
+		<!-- Ethernet cable -->
+		<path
+			android:fillColor="#00000000"
+			android:pathData="M64,54 L80,54"
+			android:strokeColor="#FFFFFF"
+			android:strokeWidth="4.5"
+			android:strokeLineCap="round" />
+
+		<!-- RJ45 connector body -->
+		<path
+			android:fillColor="#FDD835"
+			android:pathData="M80,46 Q80,43 83,43 L98,43 Q101,43 101,46 L101,62 Q101,65 98,65 L83,65 Q80,65 80,62 Z" />
+
+		<!-- RJ45 latch tab -->
+		<path
+			android:fillColor="#FDD835"
+			android:pathData="M84,38 Q84,36 85.5,36 L89.5,36 Q91,36 91,38 L91,46 L84,46 Z" />
+
+		<!-- RJ45 pin 1 -->
+		<path
+			android:fillColor="#0D47A1"
+			android:pathData="M83,50 Q83,49 84.1,49 L85.3,49 Q86.4,49 86.4,50 L86.4,57 Q86.4,58 85.3,58 L84.1,58 Q83,58 83,57 Z" />
+
+		<!-- RJ45 pin 2 -->
+		<path
+			android:fillColor="#0D47A1"
+			android:pathData="M88,50 Q88,49 89.1,49 L90.3,49 Q91.4,49 91.4,50 L91.4,57 Q91.4,58 90.3,58 L89.1,58 Q88,58 88,57 Z" />
+
+		<!-- RJ45 pin 3 -->
+		<path
+			android:fillColor="#0D47A1"
+			android:pathData="M93,50 Q93,49 94.1,49 L95.3,49 Q96.4,49 96.4,50 L96.4,57 Q96.4,58 95.3,58 L94.1,58 Q93,58 93,57 Z" />
+
+		<!-- Lightning bolt badge circle -->
+		<path
+			android:fillColor="#FDD835"
+			android:pathData="M86,72 m-14,0 a14,14 0 1,0 28,0 a14,14 0 1,0 -28,0" />
+
+		<!-- Lightning bolt shape -->
+		<path
+			android:fillColor="#0D47A1"
+			android:pathData="M88,61 L80,73 L86,73 L84,83 L93,71 L87,71 Z" />
+
+		<!-- Subtle drop shadow on cable/connector area -->
+		<path android:pathData="M64,58 Q80,70 101,62 L101,65 Q80,73 58,58 Z">
+			<aapt:attr name="android:fillColor">
+				<gradient
+					android:startX="64"
+					android:startY="58"
+					android:endX="101"
+					android:endY="65"
+					android:type="linear">
+					<item android:offset="0.0" android:color="#33000000" />
+					<item android:offset="1.0" android:color="#00000000" />
+				</gradient>
+			</aapt:attr>
+		</path>
+
+	</group>
+
+</vector>

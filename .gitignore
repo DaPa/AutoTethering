@@ -1,3 +1,4 @@
+*.jks
 *.iml
 .gradle
 /local.properties
@@ -8,3 +9,6 @@
 .externalNativeBuild
 .cxx
 local.properties
+/app/release
+gradle-daemon-jvm.properties
+*.bat

@@ -1,0 +1,68 @@
+name: Android CI Build
+
+on:
+  push:
+    tags:
+      - 'v*'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - uses: actions/cache@v5
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle-${{ runner.os }}-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+
+      - run: chmod +x ./gradlew
+
+      # Restore keystore
+      - name: Decode keystore
+        run: |
+          mkdir -p app/keystore
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > app/keystore/my_keystore-release.jks
+
+      # Export env vars for Gradle
+      - name: Set signing env vars
+        run: |
+          echo "KEYSTORE_PASSWORD=${{ secrets.KEYSTORE_PASSWORD }}" >> $GITHUB_ENV
+          echo "KEY_ALIAS=${{ secrets.KEY_ALIAS }}" >> $GITHUB_ENV
+          echo "KEY_PASSWORD=${{ secrets.KEY_PASSWORD }}" >> $GITHUB_ENV
+
+      # Lint
+      - run: ./gradlew lint
+
+      # Build signed release APK
+      - name: Build Release APK
+        run: ./gradlew assembleRelease
+
+      # Upload artifacts
+      - name: List APK outputs (debug step)
+        run: find app/build/outputs -name "*.apk"
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: release-builds
+          path: |
+            app/build/outputs/apk/release/AutoTethering-release-v*.apk
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v3
+        with:
+          files: |
+            app/build/outputs/apk/release/AutoTethering-release-v*.apk

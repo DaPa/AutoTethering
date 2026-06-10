@@ -1,34 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="io.github.devriesl.autotethering">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-feature android:name="android.hardware.usb.host" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"
+        tools:ignore="ForegroundServicesPolicy" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
 
     <application
-        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AutoTethering">
 
         <activity
-            android:name="io.github.devriesl.autotethering.SettingsActivity"
+            android:name=".SettingsActivity"
             android:exported="true"
             android:label="@string/autotethering_settings_title"
-            android:launchMode="singleTop"
+            android:launchMode="singleTask"
             tools:ignore="ExportedActivity" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.accessibilityservice.SERVICE_SETTINGS" />
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".StatusActivity"
+            android:exported="true"
+            android:label="AutoTethering status"
+            android:launchMode="singleTask"
+            tools:ignore="ExportedActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <service android:name=".TetheringService"
+            android:exported="false"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
-            android:settingsActivity="io.github.devriesl.autotethering.SettingsActivity"
-            android:label="@string/tethering_service_label">
+            android:settingsActivity=".SettingsActivity"
+            android:label="@string/tethering_service_label"
+            tools:ignore="AccessibilityPolicy">
             <meta-data
                 android:name="android.accessibilityservice"
                 android:resource="@xml/accessibility_service_config" />
@@ -37,9 +55,33 @@
                 <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
                 <action android:name="android.hardware.usb.action.USB_DEVICE_DETACHED" />
                 <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
-                <action android:name="android.hardware.usb.action.USB_ACCESSORY_DETACHE" />
+                <action android:name="android.hardware.usb.action.USB_ACCESSORY_DETACHED" />
             </intent-filter>
         </service>
+
+        <service
+            android:name=".StatusService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+
+            <!-- Required for specialUse type on Android 14+ -->
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Keeps persistent tethering-status notification visible" />
+
+        </service>
+
+        <service
+            android:name=".TetherTileService"
+            android:exported="true"
+            android:label="Eth Tether"
+            android:icon="@drawable/ic_tile_tether_off"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>

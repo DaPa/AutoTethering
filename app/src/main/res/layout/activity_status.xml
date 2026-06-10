@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- ── Summary banner ───────────────────────────────────────────── -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/summary_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp">
+
+            <TextView
+                android:id="@+id/summary_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ── Status rows ───────────────────────────────────────────────── -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <!-- Tethering row -->
+                <include layout="@layout/item_status_row"
+                    android:id="@+id/row_tethering" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="56dp"
+                    android:background="?attr/colorOutlineVariant" />
+
+                <!-- USB row -->
+                <include layout="@layout/item_status_row"
+                    android:id="@+id/row_usb" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="56dp"
+                    android:background="?attr/colorOutlineVariant" />
+
+                <!-- Accessibility row -->
+                <include layout="@layout/item_status_row"
+                    android:id="@+id/row_accessibility" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="56dp"
+                    android:background="?attr/colorOutlineVariant" />
+
+                <!-- Battery row -->
+                <include layout="@layout/item_status_row"
+                    android:id="@+id/row_battery" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ── Action buttons 2×2 grid ───────────────────────────────────── -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="2"
+                android:padding="12dp"
+                android:useDefaultMargins="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/open_android_btn"
+                    style="@style/Widget.Material3.Button.OutlinedButton.Icon"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:text="@string/app_details"
+                    android:textSize="12sp"
+                    app:icon="@drawable/ic_btn_app_details"
+                    app:iconGravity="top"
+                    app:iconSize="24dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/open_settings_btn"
+                    style="@style/Widget.Material3.Button.OutlinedButton.Icon"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:text="@string/app_settings"
+                    android:textSize="12sp"
+                    app:icon="@drawable/ic_btn_app_settings"
+                    app:iconGravity="top"
+                    app:iconSize="24dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/open_accessibility_btn"
+                    style="@style/Widget.Material3.Button.OutlinedButton.Icon"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:text="@string/accessibility_settings"
+                    android:textSize="12sp"
+                    app:icon="@drawable/ic_btn_accessibility"
+                    app:iconGravity="top"
+                    app:iconSize="24dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/open_tethering_btn"
+                    style="@style/Widget.Material3.Button.OutlinedButton.Icon"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:text="@string/tethering_settings"
+                    android:textSize="12sp"
+                    app:icon="@drawable/ic_btn_tethering"
+                    app:iconGravity="top"
+                    app:iconSize="24dp" />
+
+            </GridLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

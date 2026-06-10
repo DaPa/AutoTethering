@@ -1,8 +1,12 @@
 <accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:accessibilityEventTypes="typeAllMask"
     android:accessibilityFeedbackType="feedbackAllMask"
     android:accessibilityFlags="flagDefault"
     android:canRetrieveWindowContent="true"
+    android:summary="Ethernet tethering"
+    android:tileService="TetheringService"
     android:description="@string/tethering_service_description"
-    android:notificationTimeout="100"
-    android:settingsActivity="io.github.devriesl.autotethering.SettingsActivity" />
+    android:notificationTimeout="200"
+    android:settingsActivity=".SettingsActivity"
+    tools:ignore="AccessibilityPolicy" />
